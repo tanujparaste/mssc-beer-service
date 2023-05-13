@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.annotations.UuidGenerator;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,8 +28,9 @@ import lombok.Setter;
 @Entity
 public class Beer {
 	@Id
-	@GeneratedValue(generator = "uuid")
-	@GenericGenerator(name = "uuid", strategy = "org.hibernate.id.uuid.UuidGenerator")
+//	@GeneratedValue(generator = "uuid")
+//	@GenericGenerator(name = "uuid", strategy = "org.hibernate.id.uuid.UuidGenerator")
+	@UuidGenerator
 	@Column(length = 36, columnDefinition = "varchar", updatable = false, nullable = false)
 	private UUID id;
 
@@ -41,13 +43,13 @@ public class Beer {
 
 	@UpdateTimestamp
 	private Timestamp lastModifiedDate;
-	
+
 	private String beerName;
 	private String beerStyle;
 
 	@Column(unique = true)
 	private Long upc;
-	
+
 	private BigDecimal price;
 
 	private Integer minOnHand;
