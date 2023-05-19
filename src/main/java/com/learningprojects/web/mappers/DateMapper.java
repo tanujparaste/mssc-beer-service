@@ -5,6 +5,9 @@ import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class DateMapper {
 	public Timestamp asTimestamp(OffsetDateTime offsetDateTime) {
 		if (offsetDateTime != null) {

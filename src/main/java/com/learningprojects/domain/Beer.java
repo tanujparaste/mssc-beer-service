@@ -31,7 +31,6 @@ import lombok.Setter;
 @Builder
 @Entity
 public class Beer {
-	@Null // this is read only property, someone else cannot set the value
 	@Id
 //	@GeneratedValue(generator = "uuid")
 //	@GenericGenerator(name = "uuid", strategy = "org.hibernate.id.uuid.UuidGenerator")
@@ -39,35 +38,26 @@ public class Beer {
 	@Column(length = 36, columnDefinition = "varchar", updatable = false, nullable = false)
 	private UUID id;
 
-	@Null
 	@Version // gives optimistic locking
 	private Integer version;
 
-	@Null
 	@CreationTimestamp
 	@Column(updatable = false)
 	private Timestamp createdDate;
 
-	@Null
 	@UpdateTimestamp
 	private Timestamp lastModifiedDate;
 
-	@NotBlank
 	private String beerName;
 
-	@NotNull
 	private String beerStyle;
 
-	@NotNull
-	@Positive
 	@Column(unique = true)
 	private Long upc;
 
-	@Positive
-	@NotNull
 	private BigDecimal price;
 
 	private Integer minOnHand;
-	
+
 	private Integer quantityToBrew;
 }
