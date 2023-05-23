@@ -11,10 +11,12 @@ import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.learningprojects.services.BeerService;
 import com.learningprojects.web.model.BeerDto;
 import com.learningprojects.web.model.BeerStyleEnum;
 
@@ -22,6 +24,9 @@ import com.learningprojects.web.model.BeerStyleEnum;
 class BeerControllerTest {
 	@Autowired
 	MockMvc mockMvc;
+
+	@MockBean
+	BeerService beerService;
 
 	@Autowired
 	ObjectMapper objectMapper;

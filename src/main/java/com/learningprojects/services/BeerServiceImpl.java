@@ -2,7 +2,6 @@ package com.learningprojects.services;
 
 import java.util.UUID;
 
-import org.mapstruct.Mapper;
 import org.springframework.stereotype.Service;
 
 import com.learningprojects.domain.Beer;
